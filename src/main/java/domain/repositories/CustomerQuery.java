@@ -6,7 +6,7 @@ import java.util.Set;
 public class CustomerQuery {
     private final Optional<Set<String>> ids;
 
-    public Optional<Set<String>> getIds() {
+    public Optional<Set<String>> ids() {
         return ids;
     }
 
