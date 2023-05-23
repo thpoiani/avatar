@@ -4,6 +4,8 @@ import domain.models.ProfilePhoto;
 import domain.repositories.ProfilePhotoRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 
+import java.util.Map;
+
 @ApplicationScoped
 public class ProfilePhotoCreateService {
     private final ProfilePhotoRepository repository;
@@ -13,6 +15,7 @@ public class ProfilePhotoCreateService {
     }
 
     public void save(String customerId, ProfilePhoto profilePhoto) {
-        repository.save(customerId, profilePhoto);
+        repository.registerEntities(Map.of(customerId, profilePhoto));
+        repository.commit();
     }
 }
